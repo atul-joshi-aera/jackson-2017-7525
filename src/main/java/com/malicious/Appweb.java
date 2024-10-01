@@ -1,4 +1,4 @@
-package jackson_20177525;
+package com.malicious;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,16 +9,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Appweb
 {
-    public static void main( String[] args ) throws IOException 
+    public static void main( String[] args) throws IOException
     {
 		ObjectMapper om = new ObjectMapper();
 		om.enableDefaultTyping();
 
-		boom b = om.readValue(Files.readAllBytes(Paths.get(args[0])), boom.class);
+		Exploit exploit = om.readValue(Files.readAllBytes(Paths.get(args[0])), Exploit.class);
     }
 }
 
-class boom {
+class Exploit {
 	public int id;
 	public Object ob;
 }
